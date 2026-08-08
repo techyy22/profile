@@ -1,9 +1,83 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<img src="{{ url_for('static', filename='images/headshot.jpg') }}">
-
-<cafsorry ab
 
 
+<div class="container mt-3" > 
+
+    <div class="text-center">
+        <img style="height: 200px; width: 200px;"src="{{ url_for('static', filename='images/headshot.png') }}" class="rounded-circle" alt="earl's headshot photo">
+   
+    </div>
+
+</div>
+
+ <!-- Github card -->
+<div class="card mx-auto mt-3" style="width: 18rem;">
+    <div class="row">
+    <div class="col-md-4">
+        <img class="card-img" src="{{ url_for('static', filename='images/githubicon.png') }}" alt="Github Icon">
+    </div>
+
+
+    <div class="col-md-8">
+        <div class="card-body">
+            <a href="https://github.com/techyy22">@techyy22</a>
+        </div>
+    </div>
+</div>
+    
+</div>
+
+ <!-- LinkedIn card -->
+ <div class="card mx-auto mt-3" style="width: 18rem;">
+    <div class="row">
+    <div class="col-md-4">
+        <img class="card-img" src="{{ url_for('static', filename='images/linkedinicon.png') }}" alt="LinkedIn Icon">
+    </div>
+
+
+    <div class="col-md-8">
+        <div class="card-body">
+            <a href="https://www.linkedin.com/in/earl-brown-338295334/">Earl Brown</a>
+        </div>
+    </div>
+</div>
+    
+</div>
+
+    
+ <!-- Handshake card -->
+ <div class="card mx-auto mt-3" style="width: 18rem;">
+    <div class="row">
+    <div class="col-md-4">
+        <img class="card-img" src="{{ url_for('static', filename='images/handshakeicon.jpeg') }}" alt="Handshake Icon">
+    </div>
+
+
+    <div class="col-md-8">
+        <div class="card-body">
+            <a href="https://app.joinhandshake.com/profiles/6akuvn">Earl Brown</a>
+        </div>
+    </div>
+</div>
+    
+</div>
+
+ <!-- Instagram card -->
+<div class="card mx-auto mt-3" style="width: 18rem;">
+    <div class="row">
+    <div class="col-md-4">
+        <img class="card-img" src="{{ url_for('static', filename='images/instagram.jpeg') }}" alt="Instagram Icon">
+    </div>
+
+
+    <div class="col-md-8">
+        <div class="card-body">
+            <a href="https://www.instagram.com/_th1nkb1g_/">@th1nk_b1g</a>
+        </div>
+    </div>
+</div>
+    
+</div>
 {% endblock %}
