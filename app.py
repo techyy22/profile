@@ -1,7 +1,16 @@
 import os
 import sqlite3
-from flask import Flask, g
-from utils import BASE_DIR, get_db
+from flask import Flask, render_template, request, redirect, url_for
 
-app = Flask(__name__)  # creates the flask app object
+app = Flask(__name__)  
 
+@app.route('/')
+def index():
+    return render_template("home.html")
+
+@app.route('/home')
+def home():
+    return render_template("home.html")
+
+if __name__ == "__main__":
+    app.run(debug=True)
