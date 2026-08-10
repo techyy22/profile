@@ -1,7 +1,15 @@
 {% extends "layout.html" %}
 
 {% block content %}
-
+<style>
+    a  {
+        color:black;
+    }
+    a:hover{
+        color:darkgreen;
+        text-decoration-line: none;
+    }
+</style>
 
 <div class="container mt-3" > 
 
@@ -51,7 +59,7 @@
  <div class="card mx-auto mt-3" style="width: 18rem;">
     <div class="row">
     <div class="col-md-4">
-        <img class="card-img" src="{{ url_for('static', filename='images/handshakeicon.jpeg') }}" alt="Handshake Icon">
+        <img class="card-img" src="{{ url_for('static', filename='images/handshakeicon.png') }}" alt="Handshake Icon">
     </div>
 
 
@@ -68,7 +76,7 @@
 <div class="card mx-auto mt-3" style="width: 18rem;">
     <div class="row">
     <div class="col-md-4">
-        <img class="card-img" src="{{ url_for('static', filename='images/instagram.jpeg') }}" alt="Instagram Icon">
+        <img class="card-img" src="{{ url_for('static', filename='images/instaicon.png') }}" alt="Instagram Icon">
     </div>
 
 
