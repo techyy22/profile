@@ -1,178 +1,385 @@
 {% extends "layout.html" %}
 {% block content %}
 <style>
-    #carouselExampleIndicators .carousel-item img {
-    width: 100%;
-    height: 500px;
-    object-fit: cover;
-}
+    .resume-page {
+        max-width: 1050px;
+        margin: 0 auto;
+        padding: 2rem 1rem 4rem;
+    }
 
+    .resume-header {
+        text-align: center;
+        padding: 2rem 1rem 2.5rem;
+    }
+
+    .resume-header h1 {
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+    }
+
+    .resume-header .subtitle {
+        font-size: 1.15rem;
+        color: #6c757d;
+        max-width: 750px;
+        margin: 0 auto;
+    }
+
+    .section-title {
+        font-weight: 700;
+        border-bottom: 2px solid #dee2e6;
+        padding-bottom: 0.6rem;
+        margin: 2.5rem 0 1.5rem;
+    }
+
+    .skills-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+        margin-bottom: 2rem;
+    }
+
+    .skill {
+        background: #f1f3f5;
+        border: 1px solid #dee2e6;
+        border-radius: 999px;
+        padding: 0.45rem 0.85rem;
+        font-size: 0.9rem;
+    }
+
+    .experience-card {
+        border: 1px solid #dee2e6;
+        border-radius: 12px;
+        margin-bottom: 1.5rem;
+        overflow: hidden;
+        background: #fff;
+    }
+
+    .experience-header {
+        padding: 1.5rem 1.5rem 0.75rem;
+    }
+
+    .experience-header h3 {
+        margin-bottom: 0.2rem;
+        font-weight: 700;
+    }
+
+    .experience-meta {
+        color: #6c757d;
+        font-size: 0.95rem;
+    }
+
+    .experience-body {
+        padding: 0 1.5rem 1.5rem;
+    }
+
+    .experience-body ul {
+        margin-bottom: 0;
+    }
+
+    .experience-body li {
+        margin-bottom: 0.55rem;
+        line-height: 1.55;
+    }
+
+    .experience-body li:last-child {
+        margin-bottom: 0;
+    }
+
+    .company-logo {
+        max-height: 90px;
+        max-width: 220px;
+        object-fit: contain;
+        margin: 1.25rem 1.5rem 0;
+    }
+
+    .project-card {
+        border: 1px solid #dee2e6;
+        border-radius: 12px;
+        padding: 1.5rem;
+        height: 100%;
+    }
+
+    .project-card h4 {
+        font-weight: 700;
+        margin-bottom: 0.75rem;
+    }
+
+    .project-card p {
+        color: #555;
+        margin-bottom: 0;
+        line-height: 1.55;
+    }
+
+    .highlight-section {
+        margin-top: 2.5rem;
+    }
+
+    .carousel-wrapper {
+        max-width: 850px;
+        margin: 0 auto;
+    }
+
+    .carousel-wrapper img {
+        width: 100%;
+        height: 450px !important;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+
+    .career-note {
+        background: #f8f9fa;
+        border-left: 4px solid #6c757d;
+        padding: 1.25rem 1.5rem;
+        border-radius: 6px;
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+        .resume-page {
+            padding: 1rem 0.75rem 3rem;
+        }
+
+        .resume-header {
+            padding: 1.5rem 0.5rem 2rem;
+        }
+
+        .resume-header h1 {
+            font-size: 1.8rem;
+        }
+
+        .experience-header,
+        .experience-body {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        .company-logo {
+            margin-left: 1rem;
+            margin-right: 1rem;
+        }
+
+        .carousel-wrapper img {
+            height: 450px;
+        }
+    }
+
+    @media print {
+        .resume-page {
+            max-width: 100%;
+            padding: 0;
+        }
+
+        .carousel,
+        .highlight-section {
+            display: none !important;
+        }
+
+        .experience-card {
+            border: none;
+            break-inside: avoid;
+        }
+
+        .project-card {
+            break-inside: avoid;
+        }
+    }
 </style>
 
-<div class="mx-auto mt-3" style="width:40rem;">
-    <h4>Technical Work Experience</h4>
-</div>
-
-<div class="card mx-auto mt-3" style="width:40rem;">
-    <img class="card-img top"  src="{{ url_for('static', filename='images/bpllogo.png') }}">
-
-    <div class="card-body">
-        <h3>BPL Technical Assistant</h3>
-
-        <ul>
-            <li>Provided technical support to library staff and patrons, assisting with computer, software, printing, and other technology-related issues.</li>
-            <li>Troubleshot technical problems and helped users navigate hardware and software with clear, patient, and effective guidance.</li>
-            <li>Assisted with maintaining and supporting public-use computers and technology throughout the library.</li>
-            <li>Demonstrated strong attention to detail when diagnosing technical issues, following procedures, and ensuring technology was functioning properly for staff and patrons.</li>
-            <li>Strengthened communication and problem-solving skills by working directly with users with varying levels of technical experience.</li>
-
-        </ul>
-
-    </div>
-</div>
-
-<div class="card mx-auto mt-3 p-4" style="width:40rem;">
-    <img class="card-img top"  src="{{ url_for('static', filename='images/hhs.jpg') }}">
-
-    <h3 class="mt-3" >Heartland Head Start IT Internship</h3>
-
-    <h4>IT Expericence and Skills Learned</h4>
-    <p>During my IT internship at Heartland Head Start, I gained hands-on experience and exposure to a variety of 
-        technical support processes, software, and IT operations. This experience helped me 
-        develop a better understanding of how IT departments support employees, manage technology resources,
-        maintain computer systems, and troubleshoot technical issues.
-    </p>
-
-    <h4>Software and Tools</h4>
-    <ul>
-        <li>Remote Desktop</li>
-        <li>Active Directory</li>
-        <li>Windows Command Prompt </li>
-        <li>Windows Operating System</li>
-        <li>Server and Domain Environments</li>
-        
-
-    </ul>
-
-    <h4>Technical Skills and Areas of Learning</h4>
-    <ul>
-        <li>Observed and assisted with the process of identifying and removing viruses and malware from laptops and other Windows devices.</li>
-        <li>Learned about IT onboarding and offboarding procedures, including creating and deactivating user accounts, setting up computers, preparing devices for employees, and managing returned equipment.</li>
-        <li>Learned how computers are uploaded to and offloaded from the server as part of the organization's computer management process.</li>
-        <li>Gained experience with Active Directory and developed a better understanding of how domains are used to manage users, computers, and network resources.</li>
-        <li>Learned how to set up, configure, and troubleshoot Windows devices for employees.</li>
-        <li>Learned how printer drivers are installed, configured, updated, and maintained.</li>
-        <li>Assisted with cleaning and organizing the X: drive to improve file organization and make files easier for employees to access.</li>
-        <li>Developed an understanding of IT inventory management, including asset tracking, equipment management, and technology disposal.</li>
-        <li>Strengthened my troubleshooting skills by identifying technical problems, analyzing possible causes, and helping implement appropriate solutions.</li>
-        <li>Learned effective file management practices, including how files are organized, stored, accessed, and maintained.</li>
-        <li>Gained a better understanding of IT outsourcing and how external vendors and service providers assist organizations with technology operations and specialized IT services.</li>
-        <li>Created a user guide for new phones to help employees understand device setup, features, and basic usage.</li>
-        <li>Gained experience working with common IT support procedures and learned the importance of documenting, organizing, and maintaining technology resources.</li>
-    </ul>
-
-    <h3 class="mt-3"> Higlights</h3>
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner-heartland">
-          <div class="carousel-item active">
-            <img class="d-block w-100" src="{{ url_for('static', filename='images/photo0.jpg') }}" alt="First slide">
-          </div>
-          <div class="carousel-item">
-            <img class="d-block w-100" src="{{ url_for('static', filename='images/photo1.jpg') }}" alt="Second slide">
-          </div>
-          <div class="carousel-item">
-            <img class="d-block w-100" src="{{ url_for('static', filename='images/photo2.jpg') }}" alt="Third slide">
-          </div>
-          <div class="carousel-item">
-            <img class="d-block w-100" src="{{ url_for('static', filename='images/photo3.jpg') }}" alt="Fourth slide">
-          </div>
-          <div class="carousel-item">
-            <img class="d-block w-100" src="{{ url_for('static', filename='images/photo4.jpg') }}" alt="Fifth slide">
-          </div>
-        </div>
-        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
+<div class="resume-page"> 
+    <header class="resume-header">
+        <h1>IT Support & Technology Experience</h1>
+        <p class="subtitle"> Hands-on experience supporting users, troubleshooting Windows environments, managing
+            technology resources, improving web accessibility, and building workflow automations. </p>
+    </header> 
     
-    </div>
+    <!-- TECHNICAL SKILLS -->
+    <section>
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="skills-container"> <span class="skill">IT Support</span> <span class="skill">Windows</span> <span
+                class="skill">Active Directory</span> <span class="skill">Remote Desktop</span> <span
+                class="skill">Microsoft 365</span> <span class="skill">Microsoft Teams</span> <span class="skill">Power
+                Automate</span> <span class="skill">HTML / CSS</span> <span class="skill">CMS</span> <span
+                class="skill">Excel</span> <span class="skill">Hardware Troubleshooting</span> <span class="skill">Asset
+                Management</span> <span class="skill">Web Accessibility</span> <span class="skill">Technical
+                Documentation</span> </div>
+    </section> 
+    
+    
+    <!-- EXPERIENCE -->
+    <section>
+        <h2 class="section-title">Professional Experience</h2> 
+        
+        <!-- BPL TECHNICAL ASSISTANT -->
+        <div class="experience-card"> <img class="company-logo"
+                src="{{ url_for('static', filename='images/bpllogo.png') }}" alt="Bloomington Public Library logo">
+            <div class="experience-header">
+                <h3>BPL Technical Assistant</h3>
+                <div class="experience-meta"> Bloomington Public Library </div>
+            </div>
+            <div class="experience-body">
+                <ul>
+                    <li> Provide technical support to library staff and patrons, troubleshooting computer, software,
+                        printing, and technology-related issues. </li>
+                    <li> Diagnose hardware and software problems and provide clear, patient guidance to users with
+                        varying levels of technical experience. </li>
+                    <li> Support public-use computers and technology throughout the library, helping ensure systems
+                        remain functional and accessible. </li>
+                    <li> Follow established troubleshooting procedures while maintaining attention to detail and
+                        accurate problem identification. </li>
+                    <li> Strengthen communication and problem-solving skills through direct interaction with staff and
+                        members of the public. </li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- HEARTLAND HEAD START -->
+        <div class="experience-card"> <img class="company-logo" src="{{ url_for('static', filename='images/hhs.jpg') }}"
+                alt="Heartland Head Start">
+            <div class="experience-header">
+                <h3>IT Intern</h3>
+                <div class="experience-meta"> Heartland Head Start </div>
+            </div>
+            <div class="experience-body">
+                <ul>
+                    <li> Supported Windows devices and assisted with hardware, software, and configuration
+                        troubleshooting. </li>
+                    <li> Worked with <strong>Active Directory</strong> to develop practical experience managing users,
+                        computers, and domain resources. </li>
+                    <li> Assisted with employee onboarding and offboarding, including account setup, device preparation,
+                        and equipment returns. </li>
+                    <li> Assisted with identifying and removing malware from Windows laptops and other devices. </li>
+                    <li> Installed, configured, and maintained printer drivers and supported common Windows printing
+                        issues. </li>
+                    <li> Assisted with IT inventory and asset management, including equipment tracking, organization,
+                        and disposal. </li>
+                    <li> Created a user guide for new phones to help employees understand device setup, features, and
+                        basic operation. </li>
+                    <li> Improved shared-file organization by assisting with cleanup and organization of network
+                        resources. </li>
+                </ul>
+            </div>
+        </div> 
+        
+        <!-- CITY OF BLOOMINGTON -->
+        <div class="experience-card"> <img class="company-logo"
+                src="{{ url_for('static', filename='images/blonoicon.png') }}" alt="City of Bloomington logo">
+            <div class="experience-header">
+                <h3>IT Intern</h3>
+                <div class="experience-meta"> City of Bloomington · Illinois Wesleyan University Summer Enrichment
+                    Program </div>
+            </div>
+            <div class="experience-body">
+                <div class="career-note"> This internship provided hands-on experience in municipal IT, allowing me to
+                    apply classroom knowledge to real-world technology, accessibility, data migration, and automation
+                    projects. </div>
+                <h5>Web Accessibility & CMS</h5>
+                <ul>
+                    <li> Audited and improved website accessibility by cleaning HTML, removing empty headers, correcting
+                        tables, and addressing structural issues within a content management system. </li>
+                    <li> Collaborated with city departments to design and build web pages, including a Miller Park Zoo
+                        animal showcase and seasonal employee training resources. </li>
+                </ul>
+                <h5 class="mt-4">Forms & Digital Migration</h5>
+                <ul>
+                    <li> Audited and archived inactive forms while documenting form metadata in Excel. </li>
+                    <li> Recreated web-based and fillable PDF forms and replaced legacy SeamlessDocs links with OpenGov
+                        forms. </li>
+                    <li> Organized, renamed, and migrated large volumes of files to new software platforms to improve
+                        accessibility and organization. </li>
+                </ul>
+                <h5 class="mt-4">Workflow Automation</h5>
+                <ul>
+                    <li> Built custom workflows using <strong>Microsoft Power Automate</strong>. </li>
+                    <li> Created an automation that extracted selected information from form submissions and
+                        automatically posted it to a Microsoft Teams group chat for real-time visibility. </li>
+                </ul>
+            </div>
+        </div> 
+        
+        
+        <!-- BPL IT INTERNSHIP -->
+        <div class="experience-card"> <img class="company-logo"
+                src="{{ url_for('static', filename='images/bpllogo.png') }}" alt="Bloomington Public Library logo">
+            <div class="experience-header">
+                <h3>IT Intern</h3>
+                <div class="experience-meta"> Bloomington Public Library </div>
+            </div>
+            <div class="experience-body">
+                <ul>
+                    <li> Contributed to the Pantagraph digitization project, helping expand public access to historical
+                        newspaper records. </li>
+                    <li> Processed and reviewed a large volume of digital files, maintaining organization, accuracy, and
+                        consistency. </li>
+                    <li> Performed quality checks across digitized materials to identify errors and maintain reliable
+                        records. </li>
+                    <li> Supported preservation and public accessibility of historical records through careful digital
+                        organization. </li>
+                </ul>
+            </div>
+        </div>
+    </section> 
+    
+    <!-- SELECTED PROJECTS -->
+    <section>
+        <h2 class="section-title">Selected Projects</h2>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="project-card">
+                    <h4>Power Automate Workflow</h4>
+                    <p> Built an automated Microsoft Power Automate workflow that extracted information from form
+                        submissions and posted the results directly to a Microsoft Teams group chat. </p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="project-card">
+                    <h4>Web Accessibility</h4>
+                    <p> Audited municipal web pages and corrected HTML structure, tables, and heading issues to improve
+                        accessibility and create cleaner content-management workflows. </p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="project-card">
+                    <h4>Digital Form Migration</h4>
+                    <p> Audited legacy forms, documented metadata, recreated web and PDF forms, and migrated workflows
+                        from SeamlessDocs to OpenGov. </p>
+                </div>
+            </div>
+        </div>
+    </section> 
+    
+    <!-- VISUAL HIGHLIGHTS -->
+    <section class="highlight-section">
+        <h2 class="section-title">Professional Highlights</h2>
+        <p class="text-muted mb-4"> A visual look at selected projects and experiences from my internships. </p>
+        <div class="carousel-wrapper">
+            <div id="careerHighlights" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#careerHighlights" data-slide-to="0" class="active"> </li>
+                    <li data-target="#careerHighlights" data-slide-to="1"> </li>
+                    <li data-target="#careerHighlights" data-slide-to="2"> </li>
+                    <li data-target="#careerHighlights" data-slide-to="3"> </li>
+                    <li data-target="#careerHighlights" data-slide-to="4"> </li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active"> <img src="{{ url_for('static', filename='images/photo0.jpg') }}"
+                            alt="Professional experience highlight"> </div>
+                    <div class="carousel-item"> <img src="{{ url_for('static', filename='images/photo1.jpg') }}"
+                            alt="Professional experience highlight"> </div>
+                    <div class="carousel-item"> <img src="{{ url_for('static', filename='images/photo2.jpg') }}"
+                            alt="Professional experience highlight"> </div>
+                    <div class="carousel-item"> <img src="{{ url_for('static', filename='images/photo3.jpg') }}"
+                            alt="Professional experience highlight"> </div>
+                    <div class="carousel-item"> <img src="{{ url_for('static', filename='images/photo4.jpg') }}"
+                            alt="Professional experience highlight"> </div>
+                </div> <a class="carousel-control-prev" href="#careerHighlights" role="button" data-slide="prev"> <span
+                        class="carousel-control-prev-icon" aria-hidden="true"> </span> <span class="sr-only"> Previous
+                    </span> </a> <a class="carousel-control-next" href="#careerHighlights" role="button"
+                    data-slide="next"> <span class="carousel-control-next-icon" aria-hidden="true"> </span> <span
+                        class="sr-only"> Next </span> </a>
+            </div>
+        </div>
+    </section>
 
-</div>
-   
 
-<div class="card mx-auto mt-3" style="width:40rem;">
-
-    <img class="card-img top"  src="{{ url_for('static', filename='images/bpllogo.png') }}">
-
-    <div class="card-body">
-
-        <h3>BPL IT Internship</h3>
-        <ul>
-            <li>Contributed to the Pantagraph digitization project, helping expand public access, visibility, and accessibility to historical newspaper records.
-            </li>
-            <li>Processed and reviewed a large volume of digital files, requiring consistent organization, accuracy, and careful attention to detail throughout the digitization process.
-            </li>
-            <li>Developed a stronger eye for detail through extensive file review and quality checking, strengthening accuracy and consistency when working with large collections of records.
-            </li>
-            <li>Supported the preservation and accessibility of historical public records by ensuring digitized materials were properly organized and accessible to the public.
-            </li>
-
-        </ul>
-
-    </div>
-</div>
-
-<div class="card mx-auto mt-3 p-4" style="width:40rem;">
-    <img class="card-img top" src="{{ url_for('static', filename='images/blonoicon.png') }}">
-
-    <div class="card-body">
-        <h3>City of Bloomington IT Internship</h3>
-        <a>
-            Participating in this internship through Illinois Wesleyan University's Summer Enrichment Program (SEP) marked a pivotal first 
-            step in my professional journey. Designed to foster academic, professional, and personal growth, the program provided a structured
-            environment that allowed me to bridge classroom theory with hands-on municipal IT work. Engaging in this experience as part of the SEP 
-            cohort not only gave me my first formal taste of working in the tech industry, but it also equipped me with invaluable mentorship, 
-            professional development, and a deeper confidence in my ability to navigate and succeed in corporate and public-sector spaces.
-        </a>
-        <h4 class="mt-2">Key Contributions & Technical Projects</h4>
-        <h5>1. Content Management & Web Accessibility</h5>
-        <ul>
-            <li> Assessed and resolved web accessibility issues using a Content Management System (CMS) by cleaning up HTML code (such as removing empty headers and fixing tables).
-            </li>
-            <li>Collaborated with various departments to design and build city web pages, including a Miller Park Zoo animal showcase page with Parks and Recreation, and a hidden training page for seasonal employee orientation. </li>
-        </ul>
-
-        <h5>2. Form Auditing & Digital Migration</h5>
-        <ul>
-            <li>Audited and archived inactive forms, compiling their metadata into a comprehensive Excel spreadsheet.
-            </li>
-            <li>Recreated forms from scratch (both web-based and PDF fillable forms) and replaced legacy SeamlessDocs form links with OpenGov links to improve cross-system consistency, integration, and public workflow efficiency.
-            </li>
-            <li>Organized, renamed, and migrated a large volume of files to new software platforms to enhance data accessibility and security.
-            </li>
-        </ul>
-
-        <h5>3. Workflow Automation</h5>
-        <ul>
-            <li>Utilized Microsoft Power Automate to build custom automated workflows.</li>
-
-            <li>Programmed an automation to pull specific details from form submissions and instantly post them to a Microsoft Teams group chat for real-time team visibility.
-            </li>
-        </ul>
-
-    </div>
-</div>
-
-
-
-{% endblock %}
+</div> {% endblock %}

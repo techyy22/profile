@@ -1,5 +1,794 @@
 {% extends "layout.html" %}
+
 {% block content %}
 
-    empty!
+<style>
+    .projects-page {
+        background-color: #f8f9f6;
+        min-height: 100vh;
+        padding: 60px 20px 80px;
+    }
+
+    .projects-container {
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+    .projects-header {
+        text-align: center;
+        margin-bottom: 55px;
+    }
+
+    .projects-header h1 {
+        color: darkgreen;
+        font-size: 2.8rem;
+        font-weight: 700;
+        margin-bottom: 15px;
+    }
+
+    .projects-header p {
+        max-width: 720px;
+        margin: 0 auto;
+        color: #555;
+        font-size: 1.1rem;
+        line-height: 1.7;
+    }
+
+    .project-card {
+        background-color: white;
+        border: 1px solid #e1e6df;
+        border-radius: 14px;
+        padding: 40px;
+        margin-bottom: 35px;
+        box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
+    }
+
+    .project-label {
+        color: darkgreen;
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 8px;
+    }
+
+    .project-card h2 {
+        color: #222;
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 15px;
+    }
+
+    .project-description {
+        color: #444;
+        font-size: 1.05rem;
+        line-height: 1.8;
+        margin-bottom: 25px;
+    }
+
+    .project-section {
+        margin-top: 30px;
+    }
+
+    .project-section h3 {
+        color: darkgreen;
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
+
+    .project-section p {
+        color: #555;
+        line-height: 1.75;
+        margin-bottom: 15px;
+    }
+
+    .project-highlight {
+        border-left: 4px solid darkgreen;
+        background-color: #f4f7f2;
+        padding: 20px 25px;
+        margin: 30px 0;
+        border-radius: 0 8px 8px 0;
+    }
+
+    .project-highlight p {
+        color: #333;
+        font-size: 1.1rem;
+        font-style: italic;
+        line-height: 1.7;
+        margin: 0;
+    }
+
+    .technology-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 15px;
+    }
+
+    .technology {
+        background-color: #f0f3ef;
+        border: 1px solid #dce3da;
+        border-radius: 20px;
+        padding: 8px 15px;
+        color: #333;
+        font-size: 0.9rem;
+        font-weight: 600;
+    }
+
+    .project-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 30px;
+    }
+
+    .project-button {
+        display: inline-block;
+        background-color: darkgreen;
+        color: white !important;
+        padding: 11px 20px;
+        border-radius: 7px;
+        text-decoration: none !important;
+        font-weight: 600;
+        transition: 0.2s ease;
+    }
+
+    .project-button:hover {
+        background-color: #064d06;
+        transform: translateY(-1px);
+    }
+
+    .project-button.secondary {
+        background-color: white;
+        color: darkgreen !important;
+        border: 1px solid darkgreen;
+    }
+
+    .project-button.secondary:hover {
+        background-color: #f1f5f0;
+    }
+
+    @media (max-width: 768px) {
+        .projects-page {
+            padding: 40px 15px 60px;
+        }
+
+        .projects-header h1 {
+            font-size: 2.2rem;
+        }
+
+        .projects-header p {
+            font-size: 1rem;
+        }
+
+        .project-card {
+            padding: 30px 25px;
+        }
+
+        .project-card h2 {
+            font-size: 1.7rem;
+        }
+
+        .project-description {
+            font-size: 1rem;
+        }
+
+        .project-links {
+            flex-direction: column;
+        }
+
+        .project-button {
+            text-align: center;
+        }
+    }
+</style>
+
+
+<div class="projects-page">
+
+    <div class="projects-container">
+
+        <!-- Page Header -->
+        <div class="projects-header">
+            <h1>Projects</h1>
+
+            <p>
+                Projects are where I turn ideas into something people can
+                actually experience. Rather than only describing what I know,
+                I want my work to demonstrate it.
+            </p>
+        </div>
+
+
+        <!-- Portfolio Project -->
+        <article class="project-card">
+
+            <div class="project-label">Personal Project</div>
+
+            <h2>Personal Portfolio & Professional Experience Platform</h2>
+
+            <p class="project-description">
+                I built this website as a way to make my résumé come alive.
+                A traditional résumé can explain where I've worked, what I've
+                learned, and what skills I have, but it is limited to a page
+                or two of text. I wanted to create something that allowed my
+                work and experience to speak for themselves.
+            </p>
+
+
+            <div class="project-highlight">
+                <p>
+                    "I didn't want my résumé to simply tell people what I've
+                    done. I wanted to build something that could show them."
+                </p>
+            </div>
+
+
+            <!-- Goal -->
+            <div class="project-section">
+
+                <h3>The Goal</h3>
+
+                <p>
+                    The goal of this project was to create a central place
+                    where someone could learn about me, explore my experience,
+                    see the projects I've worked on, and understand how my
+                    technical interests have developed over time.
+                </p>
+
+                <p>
+                    Instead of treating my résumé as a static document, I
+                    wanted to turn it into an experience. The website gives
+                    me the ability to explain the context behind my work,
+                    demonstrate what I've built, and continue adding to my
+                    professional story as I grow.
+                </p>
+
+            </div>
+
+
+            <!-- What I Built -->
+            <div class="project-section">
+
+                <h3>What I Built</h3>
+
+                <p>
+                    I developed the website as a Flask application using
+                    Python and Jinja templates. The site is organized into
+                    different sections for my background, professional
+                    experience, and projects.
+                </p>
+
+                <p>
+                    The project also gave me an opportunity to work on the
+                    presentation of technical information. Rather than simply
+                    listing technologies or job responsibilities, I designed
+                    the site to give visitors context around the work I've
+                    done and the skills I've developed.
+                </p>
+
+            </div>
+
+
+            <!-- Technologies -->
+            <div class="project-section">
+
+                <h3>Technologies</h3>
+
+                <div class="technology-list">
+
+                    <span class="technology">Python</span>
+                    <span class="technology">Flask</span>
+                    <span class="technology">Jinja</span>
+                    <span class="technology">HTML</span>
+                    <span class="technology">CSS</span>
+                    <span class="technology">Bootstrap</span>
+                    <span class="technology">Git</span>
+                    <span class="technology">GitHub</span>
+
+                </div>
+
+            </div>
+
+
+            <!-- Why It Matters -->
+            <div class="project-section">
+
+                <h3>Why It Matters</h3>
+
+                <p>
+                    This project represents how I approach technology. I don't
+                    want to build something simply because I can. I want to
+                    understand the problem, figure out what would make the
+                    experience better, and build something useful.
+                </p>
+
+                <p>
+                    In this case, the problem was how to communicate my
+                    experience in a way that went beyond a traditional résumé.
+                    The result is a website that can grow alongside my career
+                    and give people a more complete picture of the person
+                    behind the résumé.
+                </p>
+
+            </div>
+
+
+            <!-- Links -->
+            <div class="project-links">
+
+                <a href="https://github.com/techyy22/profile" class="project-button secondary">
+                    View on Github
+                </a>
+
+            </div>
+
+        </article>
+
+
+        <!-- ALU Project -->
+        <article class="project-card">
+
+            <div class="project-label">Computer Architecture Project</div>
+
+            <h2>8-Bit ALU Design & Implementation</h2>
+
+            <p class="project-description">
+                As part of my computer architecture and hardware coursework, I worked
+                on the design and implementation of an 8-bit Arithmetic Logic Unit
+                (ALU) for a custom CPU. Our class first defined the instruction set
+                architecture (ISA), including the registers, instruction formats,
+                memory operations, branching, and ALU operations that the processor
+                would support.
+            </p>
+
+
+            <!-- Project Goal -->
+            <div class="project-section">
+
+                <h3>The Goal</h3>
+
+                <p>
+                    My responsibility was to design the ALU that would perform the
+                    arithmetic and comparison operations required by our ISA. The
+                    design needed to support operations including addition,
+                    subtraction, and set-less-than comparisons while integrating with
+                    the larger CPU datapath.
+                </p>
+
+                <p>
+                    Rather than treating the ALU as an isolated circuit, I had to
+                    consider how it would interact with the register file, control
+                    logic, and the rest of the processor.
+                </p>
+
+            </div>
+
+
+            <!-- Design -->
+            <div class="project-section">
+
+                <h3>Design & Implementation</h3>
+
+                <p>
+                    I designed the ALU as a minimum viable model capable of performing
+                    the core operations required by our instruction set. The design
+                    used digital logic to control the arithmetic operations and produce
+                    the appropriate output based on the selected ALU operation.
+                </p>
+
+                <p>
+                    One of the more interesting challenges was combining the addition
+                    and subtraction logic. My professor challenged me to find a way to
+                    use shared logic for both operations rather than treating them as
+                    completely separate circuits. I worked through the logic and
+                    ultimately got the combined addition and subtraction design
+                    working.
+                </p>
+
+            </div>
+
+
+            <!-- Testing -->
+            <div class="project-section">
+
+                <h3>Testing & Iteration</h3>
+
+                <p>
+                    The project also taught me an important lesson about hardware
+                    testing. My original design successfully demonstrated the basic
+                    functionality of the ALU, but testing was not robust enough to
+                    catch an issue with the SLT (set-less-than) operation.
+                </p>
+
+                <p>
+                    After identifying the problem, I was able to recognize where the
+                    original design fell short and use that experience to improve my
+                    approach to testing. The project reinforced that a circuit can
+                    appear to work correctly under a small set of inputs while still
+                    containing edge cases that need to be deliberately tested.
+                </p>
+
+            </div>
+
+
+            <!-- ISA -->
+            <div class="project-section">
+
+                <h3>Instruction Set Architecture</h3>
+
+                <p>
+                    The ALU was designed around our class-defined ISA, which used
+                    16-bit instructions and supported operations including ADD, ADDI,
+                    SUB, LB, SB, BZ, and SLT.
+                </p>
+
+                <p>
+                    The processor architecture included sixteen 8-bit registers, a
+                    12-bit program counter, instruction memory, data memory, and a
+                    pixel-based output system. The ALU therefore had to fit into a
+                    larger datapath rather than functioning as a standalone circuit.
+                </p>
+
+            </div>
+
+
+            <!-- What I Learned -->
+            <div class="project-section">
+
+                <h3>What I Learned</h3>
+
+                <p>
+                    This project gave me practical experience translating computer
+                    architecture concepts into actual digital logic. More importantly,
+                    it taught me to think about hardware design as an iterative
+                    process: build a working model, test it, identify weaknesses, and
+                    improve the design.
+                </p>
+
+                <p>
+                    It also gave me a better understanding of what happens beneath the
+                    software layer. Working with registers, arithmetic logic,
+                    instruction encoding, and datapaths helped connect the concepts
+                    I was learning in class to a functioning processor component.
+                </p>
+
+            </div>
+
+
+            <!-- Technologies / Concepts -->
+            <div class="project-section">
+
+                <h3>Technologies & Concepts</h3>
+
+                <div class="technology-list">
+
+                    <span class="technology">Digital Logic</span>
+                    <span class="technology">ALU Design</span>
+                    <span class="technology">Computer Architecture</span>
+                    <span class="technology">ISA</span>
+                    <span class="technology">8-Bit Registers</span>
+                    <span class="technology">Arithmetic Logic</span>
+                    <span class="technology">Boolean Logic</span>
+                    <span class="technology">Circuit Design</span>
+                    <span class="technology">Hardware Testing</span>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- Yoink -->
+        <article class="project-card">
+
+            <div class="project-label">Team Software Development Project</div>
+
+            <h2>Yoink</h2>
+
+            <p class="project-description">
+                Yoink is a web application designed to help students share leftover
+                school supplies with other students instead of throwing them away.
+                I worked on Yoink as part of a four-person development team, with my
+                primary responsibilities focused on database design, user profiles,
+                and user blocking.
+            </p>
+
+
+            <!-- Database Design -->
+            <div class="project-section">
+
+                <h3>Database Design</h3>
+
+                <p>
+                    I took primary responsibility for designing the database schema
+                    and determining what information we needed to store and how that
+                    information should be structured. Yohance also helped with the
+                    database configuration while I focused mainly on the schema and
+                    data model.
+                </p>
+
+                <p>
+                    The initial item structure included the item's name, status,
+                    image URL, location, description, and creation timestamp. I also
+                    implemented the initial database operations for creating and
+                    retrieving items.
+                </p>
+
+            </div>
+
+
+            <!-- User Profiles -->
+            <div class="project-section">
+
+                <h3>User Profiles & Blocking</h3>
+
+                <p>
+                    I built the user profile functionality that allowed users to
+                    view other users' profiles. I then developed the user blocking
+                    and unblocking functionality.
+                </p>
+
+                <p>
+                    This required modifying the database, Flask routes, and frontend
+                    templates so that users could block others and have their posts
+                    removed from their item listings. I also added logic to account
+                    for users who had blocked the current user.
+                </p>
+
+            </div>
+
+
+            <!-- Design Challenge -->
+            <div class="project-section">
+
+                <h3>Redesigning the Blocking System</h3>
+
+                <p>
+                    My first approach to implementing blocking was to store a list of
+                    blocked user IDs with each user. As I worked through the feature,
+                    I realized this was not the best way to structure the data.
+                </p>
+
+                <p>
+                    I changed the database design and continued developing the feature
+                    using a better structure. This eventually allowed the application
+                    to support both blocking and unblocking while properly filtering
+                    posts based on user relationships.
+                </p>
+
+            </div>
+
+
+            <!-- Team Engineering -->
+            <div class="project-section">
+
+                <h3>Team Engineering</h3>
+
+                <p>
+                    Yohance also made an important architectural improvement by
+                    introducing Flask Blueprints. This allowed us to separate our
+                    authentication, user, and item routes into different modules
+                    instead of keeping everything in one large application file.
+                </p>
+
+                <p>
+                    I appreciated this change because it gave the project a much
+                    cleaner structure and made the codebase easier to navigate and
+                    maintain as we continued adding features.
+                </p>
+
+            </div>
+
+
+            <!-- What I Learned -->
+            <div class="project-section">
+
+                <h3>What I Learned</h3>
+
+                <div class="project-highlight">
+
+                    <p>
+                        Understanding how information flows through an application is
+                        just as important as getting an individual feature to work.
+                    </p>
+
+                </div>
+
+                <p>
+                    Yoink helped me understand how the database, backend routes, and
+                    frontend work together. I had to think about what data needed to
+                    be stored, how that data should be structured, and how changes in
+                    the database affected what users saw on the website.
+                </p>
+
+                <p>
+                    I also learned that the first solution is not always the best
+                    solution. Redesigning the blocking system gave me practical
+                    experience evaluating a database design and improving it as the
+                    requirements became clearer.
+                </p>
+
+            </div>
+
+
+            <!-- Skills -->
+            <div class="project-section">
+
+                <h3>Skills Demonstrated</h3>
+
+                <div class="technology-list">
+
+                    <span class="technology">Python</span>
+                    <span class="technology">Flask</span>
+                    <span class="technology">SQL</span>
+                    <span class="technology">Jinja</span>
+                    <span class="technology">HTML</span>
+                    <span class="technology">Database Design</span>
+                    <span class="technology">Backend Development</span>
+                    <span class="technology">Web Development</span>
+                    <span class="technology">Git</span>
+                    <span class="technology">GitHub</span>
+                    <span class="technology">Debugging</span>
+                    <span class="technology">Problem Solving</span>
+
+                </div>
+
+            </div>
+
+
+            <!-- Project Link -->
+            <div class="project-section">
+
+                <a href="https://github.com/IWU-CS253/Yoink" target="_blank" rel="noopener noreferrer"
+                    class="project-button secondary">
+                    View on GitHub
+                </a>
+
+            </div>
+
+        </article>
+
+
+        </article>
+
+        <!-- Laptop Hardware Repair Project -->
+        <article class="project-card">
+
+            <div class="project-label">Hardware Troubleshooting Project</div>
+
+            <h2>Laptop Display Diagnosis & Repair</h2>
+
+            <p class="project-description">
+                I worked on repairing a laptop with a faulty display. The repair
+                required diagnosing the original problem, checking the device for
+                possible water damage, finding a compatible replacement screen, and
+                ultimately replacing a damaged display cable to return the laptop to
+                working condition.
+            </p>
+
+
+            <!-- Diagnosis -->
+            <div class="project-section">
+
+                <h3>Diagnosing the Problem</h3>
+
+                <p>
+                    The first step was determining whether the laptop had suffered
+                    water damage. After inspecting the device, I found no evidence of
+                    water damage, which allowed me to focus on the display hardware
+                    itself.
+                </p>
+
+                <p>
+                    I then looked through a group of laptops that were scheduled to be
+                    disposed of and identified a screen that was compatible with the
+                    laptop I was repairing. I removed the compatible display and
+                    installed it on the laptop.
+                </p>
+
+            </div>
+
+
+            <!-- Unexpected Failure -->
+            <div class="project-section">
+
+                <h3>An Unexpected Failure</h3>
+
+                <p>
+                    After installing the replacement screen, I wanted to verify that
+                    the original display was actually the source of the problem. During
+                    that testing process, the display cable began to burn. I
+                    immediately disconnected the system to prevent further damage.
+                </p>
+
+                <p>
+                    At that point, the repair had become more complicated. The display
+                    cable was now damaged and needed to be replaced before the laptop
+                    could be returned to the employee.
+                </p>
+
+            </div>
+
+
+            <!-- Recovery -->
+            <div class="project-section">
+
+                <h3>Completing the Repair</h3>
+
+                <p>
+                    I located a replacement display cable, installed it, and
+                    reconnected the compatible screen. After reassembling the laptop,
+                    I tested the display and confirmed that it was working properly.
+                    The laptop was successfully returned to the employee.
+                </p>
+
+            </div>
+
+
+            <!-- Lesson -->
+            <div class="project-section">
+
+                <h3>What I Learned</h3>
+
+                <div class="project-highlight">
+
+                    <p>
+                        Sometimes the most important part of troubleshooting is
+                        knowing when you already have enough information.
+                    </p>
+
+                </div>
+
+                <p>
+                    This repair taught me an important lesson about troubleshooting:
+                    don't keep trying to "fix" a component that you have already
+                    determined is faulty without considering the risks of additional
+                    testing.
+                </p>
+
+                <p>
+                    In this case, I could have left the original display disconnected
+                    after determining that it was not working. By attempting to test
+                    it again, I created an additional hardware problem that required
+                    replacing the display cable. Although I was able to recover from
+                    the failure and complete the repair, the experience changed how I
+                    approach hardware troubleshooting.
+                </p>
+
+                <p>
+                    The experience reinforced the importance of controlled testing,
+                    understanding the potential consequences of each troubleshooting
+                    step, and knowing when stopping is the better technical decision.
+                </p>
+
+            </div>
+
+
+            <!-- Skills -->
+            <div class="project-section">
+
+                <h3>Skills Demonstrated</h3>
+
+                <div class="technology-list">
+
+                    <span class="technology">Hardware Troubleshooting</span>
+                    <span class="technology">Laptop Repair</span>
+                    <span class="technology">Component Identification</span>
+                    <span class="technology">Display Replacement</span>
+                    <span class="technology">Cable Replacement</span>
+                    <span class="technology">Diagnostic Testing</span>
+                    <span class="technology">Problem Solving</span>
+                    <span class="technology">Risk Assessment</span>
+
+                </div>
+
+            </div>
+
+        </article>
+
+    </div>
+</div>
 {% endblock %}
